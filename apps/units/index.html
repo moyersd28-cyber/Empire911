@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Empire911 | Units</title>
+
+<link rel="stylesheet" href="../../css/theme.css">
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="units.css">
+
+</head>
+
+
+<body>
+
+
+<div class="units-container">
+
+
+<header>
+
+<h1>
+Unit Management
+</h1>
+
+<p>
+Live Response Units
+</p>
+
+</header>
+
+
+
+<div class="unit-actions">
+
+<button onclick="openUnitForm()">
+Add Unit
+</button>
+
+</div>
+
+
+
+
+<div id="unitList">
+
+
+<div class="empty">
+
+No units registered
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="unit-modal" id="unitModal">
+
+
+<div class="unit-form">
+
+
+<h2>
+Register Unit
+</h2>
+
+
+<input id="callsign" placeholder="Call Sign">
+
+<input id="department" placeholder="Department">
+
+<input id="officer" placeholder="Officer Name">
+
+
+<select id="status">
+
+<option>
+Available
+</option>
+
+<option>
+Busy
+</option>
+
+<option>
+Out of Service
+</option>
+
+
+</select>
+
+
+
+<button onclick="createUnit()">
+Create Unit
+</button>
+
+
+<button onclick="closeUnitForm()">
+Cancel
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<script src="units.js"></script>
+
+
+</body>
+
+</html>
