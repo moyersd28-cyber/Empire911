@@ -1,0 +1,20 @@
+{
+    "name": "Demo Emergency Communications",
+    "shortName": "DEC",
+    "logo": "assets/logo/logo.png",
+
+    "theme": {
+        "primary": "#b30000",
+        "secondary": "#333333"
+    },
+
+    "settings": {
+
+        "cad": true,
+        "rms": true,
+        "mapping": true,
+        "mobile": true
+
+    }
+
+}
