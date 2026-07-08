@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Empire911 | Login</title>
+
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/main.css">
+
+</head>
+
+
+<body>
+
+
+<div class="login-container">
+
+
+    <div class="login-box">
+
+
+        <h1>Empire911</h1>
+
+        <p class="subtitle">
+            Public Safety Communications Platform
+        </p>
+
+
+
+        <div class="login-form">
+
+
+            <input 
+            type="email"
+            placeholder="Email Address">
+
+
+            <input 
+            type="password"
+            placeholder="Password">
+
+
+
+            <button onclick="login()">
+                Sign In
+            </button>
+
+
+        </div>
+
+
+
+        <div class="agency-display">
+
+            <small>
+                Connected Agency
+            </small>
+
+            <p id="agencyName">
+                Loading...
+            </p>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="js/agency.js"></script>
+
+
+<script>
+
+function login(){
+
+    window.location.href="dashboard.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
