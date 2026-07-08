@@ -1,1 +1,175 @@
+/* =========================
+   EMPIRE911 LOGIN PAGE
+========================= */
 
+
+.login-container {
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+        radial-gradient(circle at center, #1b1b1b 0%, #090909 70%);
+
+}
+
+
+
+/* LOGIN CARD */
+
+.login-box {
+
+    width:420px;
+
+    background:#151515;
+
+    border:1px solid #333;
+
+    border-top:4px solid var(--primary-red);
+
+    border-radius:12px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+
+}
+
+
+
+/* BRAND */
+
+.login-box h1 {
+
+    font-size:42px;
+
+    letter-spacing:2px;
+
+    color:var(--primary-red);
+
+    margin-bottom:10px;
+
+}
+
+
+
+.subtitle {
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+/* INPUTS */
+
+.login-form input {
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    background:#202020;
+
+    color:white;
+
+    border:1px solid #444;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+}
+
+
+
+.login-form input:focus {
+
+    outline:none;
+
+    border-color:var(--primary-red);
+
+}
+
+
+
+/* BUTTON */
+
+.login-form button {
+
+    width:100%;
+
+    padding:15px;
+
+    background:var(--primary-red);
+
+    border:none;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+
+.login-form button:hover {
+
+    background:var(--bright-red);
+
+}
+
+
+
+/* AGENCY DISPLAY */
+
+.agency-display {
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:1px solid #333;
+
+}
+
+
+
+.agency-display small {
+
+    color:#777;
+
+}
+
+
+
+.agency-display p {
+
+    margin-top:8px;
+
+    color:white;
+
+    font-weight:bold;
+
+}
