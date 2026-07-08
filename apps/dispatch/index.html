@@ -61,19 +61,22 @@ Online
 Active Incidents
 </h2>
 
-<button>
+<button onclick="openCallForm()">
 New Call
 </button>
 
 </div>
 
 
-<div class="incident-list">
+<div class="incident-list" id="incidentList">
 
 
 <div class="empty">
 
 No active incidents
+
+</div>
+
 
 </div>
 
@@ -118,8 +121,62 @@ No units online
 
 </div>
 
+<div class="call-modal" id="callModal">
 
 
+<div class="call-form">
+
+
+<h2>
+Create Incident
+</h2>
+
+
+<input id="callType" placeholder="Call Type">
+
+
+<select id="priority">
+
+<option value="Low">
+Low
+</option>
+
+<option value="Medium">
+Medium
+</option>
+
+<option value="High">
+High
+</option>
+
+<option value="Critical">
+Critical
+</option>
+
+</select>
+
+
+<input id="location" placeholder="Location">
+
+
+<textarea id="notes" placeholder="Notes"></textarea>
+
+
+<button onclick="createIncident()">
+Create Call
+</button>
+
+
+<button onclick="closeCallForm()">
+Cancel
+</button>
+
+
+</div>
+
+
+</div>
+  
 <script src="dispatch.js"></script>
 
 
