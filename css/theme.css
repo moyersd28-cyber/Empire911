@@ -1,1 +1,22 @@
+:root {
 
+    /* Empire911 Default Theme */
+
+    --primary-red:#b30000;
+    --bright-red:#e00000;
+
+    --background:#090909;
+    --panel:#151515;
+
+    --border:#303030;
+
+    --text:#ffffff;
+    --muted:#a0a0a0;
+
+
+    /* Status Colors */
+
+    --available:#2ecc71;
+    --busy:#e74c3c;
+    --warning:#f1c40f;
+}
