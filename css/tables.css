@@ -1,0 +1,39 @@
+.e911-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.e911-table thead{
+
+    background:#1b2027;
+
+}
+
+.e911-table th{
+
+    text-align:left;
+
+    padding:12px;
+
+    font-size:13px;
+
+    color:var(--muted);
+
+}
+
+.e911-table td{
+
+    padding:14px 12px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.e911-table tbody tr:hover{
+
+    background:#20262e;
+
+}
