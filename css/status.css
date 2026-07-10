@@ -1,0 +1,53 @@
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+}
+
+.available{
+
+    background:#27ae60;
+
+}
+
+.enroute{
+
+    background:#f39c12;
+
+}
+
+.onscene{
+
+    background:#2980b9;
+
+}
+
+.busy{
+
+    background:#c0392b;
+
+}
+
+.oos{
+
+    background:#7f8c8d;
+
+}
