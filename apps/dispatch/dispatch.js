@@ -30,6 +30,44 @@ document.addEventListener(
 
 function initializeDispatch(){
 
+    createUnit({
+
+callsign:"A-12",
+
+officer:"J. Smith",
+
+department:"Police",
+
+radio:"Dispatch"
+
+});
+
+
+createUnit({
+
+callsign:"E-3",
+
+officer:"Station 3",
+
+department:"Fire",
+
+radio:"Fire"
+
+});
+
+
+createUnit({
+
+callsign:"M-4",
+
+officer:"Medic 4",
+
+department:"EMS",
+
+radio:"EMS"
+
+});
+
     updateClock();
 
     addRadioEntry(
