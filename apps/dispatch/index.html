@@ -4,11 +4,17 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Empire911 | Dispatch Center</title>
+<title>Empire911 | Dispatch Operations</title>
 
 <link rel="stylesheet" href="../../css/theme.css">
 <link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="../../css/layout.css">
+<link rel="stylesheet" href="../../css/panels.css">
+<link rel="stylesheet" href="../../css/tables.css">
+<link rel="stylesheet" href="../../css/status.css">
+
 <link rel="stylesheet" href="dispatch.css">
 
 </head>
@@ -17,28 +23,59 @@
 <body>
 
 
-<div class="dispatch-container">
+<div class="page">
 
 
-<header class="dispatch-header">
+<!-- APPLICATION HEADER -->
 
-<div>
+<header class="page-header">
+
+
+<div class="page-title">
 
 <h1>
-Dispatch Center
+Empire911 Dispatch Operations
 </h1>
 
 <p>
-Emergency Communications Operations
+Emergency Communications Center
 </p>
 
 </div>
 
 
-<div class="dispatcher-status">
 
-Dispatcher:
+<div class="header-right">
+
+
+<div class="agency-info">
+
+<div>
+Greene County ECC
+</div>
+
+<div id="clock">
+
+00:00:00
+
+</div>
+
+</div>
+
+
+
+<div class="dispatcher-info">
+
+Dispatcher
+
+<br>
+
+<span>
 Online
+</span>
+
+</div>
+
 
 </div>
 
@@ -49,29 +86,162 @@ Online
 
 
 
-<div class="dispatch-grid">
+<!-- MAIN WORKSPACE -->
+
+<main class="workspace">
 
 
-<section class="panel calls">
+
+<!-- INCIDENT INTAKE -->
+
+<section class="e911-panel">
 
 
-<div class="panel-header">
+<header class="panel-header">
+
+<h2>
+Incident Intake
+</h2>
+
+</header>
+
+
+
+<div class="panel-body">
+
+
+<label>
+Call Type
+</label>
+
+
+<input 
+type="text"
+id="callType"
+placeholder="Medical Emergency"
+/>
+
+
+
+<label>
+Priority
+</label>
+
+
+<select id="priority">
+
+
+<option>
+Low
+</option>
+
+
+<option selected>
+Medium
+</option>
+
+
+<option>
+High
+</option>
+
+
+<option>
+Critical
+</option>
+
+
+</select>
+
+
+
+<label>
+Location
+</label>
+
+
+<input
+type="text"
+id="location"
+placeholder="Address"
+/>
+
+
+
+<label>
+Caller
+</label>
+
+
+<input
+type="text"
+id="caller"
+placeholder="Caller Name"
+/>
+
+
+
+<label>
+Notes
+</label>
+
+
+<textarea
+id="notes"
+placeholder="Incident details..."
+></textarea>
+
+
+
+
+<button class="primary-btn">
+
+Create Incident
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ACTIVE INCIDENTS -->
+
+<section class="e911-panel">
+
+
+<header class="panel-header">
+
 
 <h2>
 Active Incidents
 </h2>
 
-<button onclick="openCallForm()">
-New Call
-</button>
 
-</div>
+<span class="counter">
 
+0 Active
 
-<div class="incident-list" id="incidentList">
+</span>
 
 
-<div class="empty">
+</header>
+
+
+
+
+<div class="panel-body">
+
+
+<div id="incidentList">
+
+
+<div class="empty-state">
 
 No active incidents
 
@@ -90,20 +260,234 @@ No active incidents
 
 
 
-<section class="panel units">
 
+<!-- UNIT STATUS -->
+
+<section class="e911-panel">
+
+
+<header class="panel-header">
+
+<h2>
+Unit Status
+</h2>
+
+</header>
+
+
+
+<div class="panel-body">
+
+
+<div class="status-summary">
+
+
+<div class="status-box">
+
+<span class="status-dot available"></span>
+
+Available
+
+<strong>
+0
+</strong>
+
+</div>
+
+
+
+<div class="status-box">
+
+<span class="status-dot enroute"></span>
+
+En Route
+
+<strong>
+0
+</strong>
+
+</div>
+
+
+
+<div class="status-box">
+
+<span class="status-dot onscene"></span>
+
+On Scene
+
+<strong>
+0
+</strong>
+
+</div>
+
+
+
+<div class="status-box">
+
+<span class="status-dot busy"></span>
+
+Busy
+
+<strong>
+0
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+<!-- UNIT TABLE -->
+
+
+<section class="e911-panel bottom-panel">
+
+
+<header class="panel-header">
 
 <h2>
 Available Units
 </h2>
 
 
-<div class="unit-list">
+<input 
+class="search"
+placeholder="Search units..."
+>
 
 
-<div class="empty">
+</header>
+
+
+
+<div class="panel-body">
+
+
+<table class="e911-table">
+
+
+<thead>
+
+
+<tr>
+
+<th>
+Call Sign
+</th>
+
+<th>
+Officer
+</th>
+
+<th>
+Department
+</th>
+
+<th>
+Status
+</th>
+
+<th>
+Incident
+</th>
+
+<th>
+Radio
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+<tbody id="unitTable">
+
+
+<tr>
+
+<td colspan="6">
 
 No units online
+
+</td>
+
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- RADIO LOG -->
+
+
+<section class="e911-panel radio-panel">
+
+
+<header class="panel-header">
+
+
+<h2>
+Radio Activity
+
+</h2>
+
+
+<span>
+LIVE
+</span>
+
+
+</header>
+
+
+
+<div class="panel-body">
+
+
+<div id="radioLog">
+
+
+<div class="radio-entry">
+
+14:00
+
+System initialized
+
+</div>
+
 
 </div>
 
@@ -115,68 +499,58 @@ No units online
 
 
 
+
+
+
+<footer class="system-footer">
+
+
+<div>
+
+Empire911 v3.0.0-alpha
+
 </div>
 
 
 
+<div>
+
+System Status:
+
+<span class="online">
+
+ONLINE
+
+</span>
+
 </div>
 
-<div class="call-modal" id="callModal">
 
 
-<div class="call-form">
+<div>
+
+Agency:
+
+Greene County ECC
+
+</div>
 
 
-<h2>
-Create Incident
-</h2>
+
+</footer>
 
 
-<input id="callType" placeholder="Call Type">
 
-
-<select id="priority">
-
-<option value="Low">
-Low
-</option>
-
-<option value="Medium">
-Medium
-</option>
-
-<option value="High">
-High
-</option>
-
-<option value="Critical">
-Critical
-</option>
-
-</select>
-
-
-<input id="location" placeholder="Location">
-
-
-<textarea id="notes" placeholder="Notes"></textarea>
-
-
-<button onclick="createIncident()">
-Create Call
-</button>
-
-
-<button onclick="closeCallForm()">
-Cancel
-</button>
 
 
 </div>
 
 
-</div>
-  
+
+
+
+<script src="../../js/ui/clock.js"></script>
+
 <script src="dispatch.js"></script>
 
 
