@@ -1,123 +1,483 @@
+/*
+=====================================================
+ Empire911 Dispatch Operations
+ Sprint 1.0 Dispatch Engine
+=====================================================
+*/
+
+
 let incidents = [];
 
+let radioEntries = [];
+
+let incidentCounter = 1;
 
 
-function openCallForm(){
 
-document.getElementById(
-"callModal"
-).style.display="flex";
+// Initialize
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+    initializeDispatch();
+
+});
+
+
+
+
+
+function initializeDispatch(){
+
+    updateClock();
+
+    addRadioEntry(
+        "System",
+        "Dispatch Operations initialized"
+    );
+
+
+    document
+    .querySelector(".primary-btn")
+    .addEventListener(
+        "click",
+        createIncident
+    );
+
 
 }
 
 
 
-function closeCallForm(){
 
-document.getElementById(
-"callModal"
-).style.display="none";
 
-}
-
+/*
+=====================================================
+ INCIDENT SYSTEM
+=====================================================
+*/
 
 
 function createIncident(){
 
 
-let incident = {
-
-
-id:
-"INC-" + Date.now(),
-
-
-type:
-document.getElementById("callType").value,
-
-
-priority:
-document.getElementById("priority").value,
-
-
-location:
-document.getElementById("location").value,
-
-
-notes:
-document.getElementById("notes").value
-
-
-};
+    const type =
+    document.getElementById(
+        "callType"
+    ).value.trim();
 
 
 
-incidents.push(incident);
+    const priority =
+    document.getElementById(
+        "priority"
+    ).value;
 
 
 
-renderIncidents();
+    const location =
+    document.getElementById(
+        "location"
+    ).value.trim();
 
 
 
-closeCallForm();
+    const caller =
+    document.getElementById(
+        "caller"
+    ).value.trim();
+
+
+
+    const notes =
+    document.getElementById(
+        "notes"
+    ).value.trim();
+
+
+
+
+    if(!type || !location){
+
+        alert(
+        "Call Type and Location are required."
+        );
+
+        return;
+
+    }
+
+
+
+
+
+    const incident = {
+
+
+        id:
+        generateIncidentNumber(),
+
+
+        type,
+
+        priority,
+
+        location,
+
+        caller,
+
+        notes,
+
+
+        status:
+        "Pending Dispatch",
+
+
+        assignedUnits:[],
+
+
+        created:
+        new Date()
+
+
+
+    };
+
+
+
+    incidents.push(
+        incident
+    );
+
+
+
+    renderIncidents();
+
+
+
+    addRadioEntry(
+        "Dispatch",
+        `${incident.id} created - ${incident.type}`
+    );
+
+
+
+    clearIncidentForm();
 
 
 
 }
+
+
+
+
+
+function generateIncidentNumber(){
+
+
+    const year =
+    new Date()
+    .getFullYear()
+    .toString()
+    .slice(-2);
+
+
+
+    const number =
+    String(
+        incidentCounter++
+    )
+    .padStart(
+        4,
+        "0"
+    );
+
+
+
+    return `${year}-${number}`;
+
+
+}
+
+
+
+
 
 
 
 function renderIncidents(){
 
 
-let list =
-document.getElementById(
-"incidentList"
-);
+    const container =
+    document.getElementById(
+        "incidentList"
+    );
 
 
 
-list.innerHTML="";
+    const counter =
+    document.querySelector(
+        ".counter"
+    );
 
 
 
-incidents.forEach(call=>{
+    counter.textContent =
+    `${incidents.length} Active`;
 
 
-list.innerHTML += `
-
-<div class="incident-card">
-
-<h3>
-${call.id}
-</h3>
-
-<p>
-<strong>Type:</strong>
-${call.type}
-</p>
-
-<p>
-<strong>Priority:</strong>
-${call.priority}
-</p>
-
-<p>
-<strong>Location:</strong>
-${call.location}
-</p>
-
-<p>
-${call.notes}
-</p>
 
 
-</div>
+    if(
+        incidents.length === 0
+    ){
 
-`;
+        container.innerHTML =
 
-});
+        `
+        <div class="empty-state">
+        No active incidents
+        </div>
+        `;
+
+        return;
+
+    }
+
+
+
+
+
+    container.innerHTML="";
+
+
+
+    incidents.forEach(
+    incident=>{
+
+
+        const card =
+        document.createElement(
+            "div"
+        );
+
+
+        card.className =
+        "incident-card";
+
+
+
+        card.innerHTML =
+
+
+        `
+
+        <strong>
+        ${incident.id}
+        </strong>
+
+
+        <p>
+        ${incident.type}
+        </p>
+
+
+        <p>
+        Priority:
+        ${incident.priority}
+        </p>
+
+
+        <p>
+        Location:
+        ${incident.location}
+        </p>
+
+
+        <small>
+        ${incident.status}
+        </small>
+
+        `;
+
+
+
+        container.appendChild(
+            card
+        );
+
+
+
+    });
+
+
+}
+
+
+
+
+
+
+function clearIncidentForm(){
+
+
+    document.getElementById(
+        "callType"
+    ).value="";
+
+
+    document.getElementById(
+        "location"
+    ).value="";
+
+
+    document.getElementById(
+        "caller"
+    ).value="";
+
+
+    document.getElementById(
+        "notes"
+    ).value="";
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+=====================================================
+ RADIO SYSTEM
+=====================================================
+*/
+
+
+function addRadioEntry(
+    source,
+    message
+){
+
+
+    const time =
+    new Date()
+    .toLocaleTimeString();
+
+
+
+    radioEntries.unshift({
+
+        time,
+
+        source,
+
+        message
+
+    });
+
+
+
+    renderRadio();
+
+}
+
+
+
+
+
+function renderRadio(){
+
+
+    const log =
+    document.getElementById(
+        "radioLog"
+    );
+
+
+
+    log.innerHTML="";
+
+
+
+    radioEntries
+    .slice(0,10)
+    .forEach(
+    entry=>{
+
+
+        log.innerHTML +=
+
+        `
+
+        <div class="radio-entry">
+
+        ${entry.time}
+
+        <strong>
+        ${entry.source}
+        </strong>
+
+        :
+
+        ${entry.message}
+
+        </div>
+
+        `;
+
+
+    });
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+=====================================================
+ CLOCK
+=====================================================
+*/
+
+
+function updateClock(){
+
+
+    const clock =
+    document.getElementById(
+        "clock"
+    );
+
+
+
+    setInterval(
+    ()=>{
+
+
+        const now =
+        new Date();
+
+
+
+        clock.textContent =
+        now.toLocaleTimeString();
+
+
+    },
+    1000
+    );
 
 
 }
