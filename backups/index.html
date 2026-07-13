@@ -1,1 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<title>Empire911 | Dispatch Center</title>
+
+<link rel="stylesheet" href="../../css/theme.css">
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="dispatch.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dispatch-container">
+
+
+<header class="dispatch-header">
+
+<div>
+
+<h1>
+Dispatch Center
+</h1>
+
+<p>
+Emergency Communications Operations
+</p>
+
+</div>
+
+
+<div class="dispatcher-status">
+
+Dispatcher:
+Online
+
+</div>
+
+
+</header>
+
+
+
+
+
+<div class="dispatch-grid">
+
+
+<section class="panel calls">
+
+
+<div class="panel-header">
+
+<h2>
+Active Incidents
+</h2>
+
+<button onclick="openCallForm()">
+New Call
+</button>
+
+</div>
+
+
+<div class="incident-list" id="incidentList">
+
+
+<div class="empty">
+
+No active incidents
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="panel units">
+
+
+<h2>
+Available Units
+</h2>
+
+
+<div class="unit-list">
+
+
+<div class="empty">
+
+No units online
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+</div>
+
+
+
+</div>
+
+<div class="call-modal" id="callModal">
+
+
+<div class="call-form">
+
+
+<h2>
+Create Incident
+</h2>
+
+
+<input id="callType" placeholder="Call Type">
+
+
+<select id="priority">
+
+<option value="Low">
+Low
+</option>
+
+<option value="Medium">
+Medium
+</option>
+
+<option value="High">
+High
+</option>
+
+<option value="Critical">
+Critical
+</option>
+
+</select>
+
+
+<input id="location" placeholder="Location">
+
+
+<textarea id="notes" placeholder="Notes"></textarea>
+
+
+<button onclick="createIncident()">
+Create Call
+</button>
+
+
+<button onclick="closeCallForm()">
+Cancel
+</button>
+
+
+</div>
+
+
+</div>
+  
+<script src="dispatch.js"></script>
+
+
+</body>
+
+</html>
